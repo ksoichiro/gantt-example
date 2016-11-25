@@ -1,0 +1,61 @@
+* {
+  font-family: "Meiryo";
+}
+.table>thead>tr>th {
+  font-size: 60%;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.table>tbody>tr>td {
+  font-size: 60%;
+}
+div.wbs {
+  position: relative;
+  @wbs-width: 30%;
+  &>.table.wbs {
+    position: absolute;
+    width: @wbs-width;
+    overflow: scroll;
+    table-layout:fixed;
+    border-right: 1px solid #ccc;
+  }
+  &>div.gantt {
+    position: absolute;
+    width: 100% - @wbs-width;
+    left: @wbs-width;
+    overflow-x: scroll;
+  }
+}
+.wbs>.table {
+  &>thead>tr>th.id,
+  &>tbody>tr>td.id {
+    width: 30px;
+    overflow-x: hidden;
+  }
+  &>tbody>tr>td.task {
+    white-space: nowrap;
+    width: 80px;
+    overflow-x: hidden;
+    background: #fff;
+  }
+}
+.table>tbody>tr {
+  td.l1 {
+    padding-left: 1em;
+  }
+  td.l2 {
+    padding-left: 2em;
+  }
+  td.l3 {
+    padding-left: 3em;
+  }
+  td.l4 {
+    padding-left: 4em;
+  }
+}
+.gantt>.bar {
+  position: absolute;
+  background: #319e3a;
+  width: 100px;
+  height: 40px;
+}

@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Feature1",
+      "level": 1
+    },
+    {
+      "id": 2,
+      "title": "Sub-feature1",
+      "assignee": "A",
+      "level": 2
+    },
+    {
+      "id": 3,
+      "title": "Implement Core",
+      "assignee": "A",
+      "level": 3
+    },
+    {
+      "id": 4,
+      "title": "Implement Infra",
+      "assignee": "B",
+      "level": 3
+    },
+    {
+      "id": 5,
+      "title": "Polish",
+      "assignee": "A",
+      "level": 3
+    },
+    {
+      "id": 6,
+      "title": "Test",
+      "assignee": "B",
+      "level": 3
+    },
+    {
+      "id": 7,
+      "title": "Feature2",
+      "level": 1
+    },
+    {
+      "id": 8,
+      "title": "Sub-feature2",
+      "level": 2
+    },
+    {
+      "id": 9,
+      "title": "Implement",
+      "assignee": "C",
+      "level": 3
+    },
+    {
+      "id": 10,
+      "title": "Test",
+      "assignee": "E",
+      "level": 3
+    },
+    {
+      "id": 11,
+      "title": "Bugfix",
+      "level": 1
+    },
+    {
+      "id": 12,
+      "title": "Fix",
+      "assignee": "B",
+      "level": 2
+    },
+    {
+      "id": 13,
+      "title": "Test",
+      "assignee": "D",
+      "level": 2
+    }
+  ]
+}
