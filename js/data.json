@@ -3,37 +3,49 @@
     {
       "id": 1,
       "title": "Feature1",
-      "level": 1
+      "level": 1,
+      "startAt": "2016-11-02",
+      "endAt": "2016-11-08"
     },
     {
       "id": 2,
       "title": "Sub-feature1",
       "assignee": "A",
-      "level": 2
+      "level": 2,
+      "startAt": "2016-11-02",
+      "endAt": "2016-11-08"
     },
     {
       "id": 3,
       "title": "Implement Core",
       "assignee": "A",
-      "level": 3
+      "level": 3,
+      "startAt": "2016-11-02",
+      "endAt": "2016-11-03"
     },
     {
       "id": 4,
       "title": "Implement Infra",
       "assignee": "B",
-      "level": 3
+      "level": 3,
+      "startAt": "2016-11-02",
+      "endAt": "2016-11-03"
     },
     {
       "id": 5,
       "title": "Polish",
       "assignee": "A",
-      "level": 3
+      "level": 3,
+      "startAt": "2016-11-04",
+      "endAt": "2016-11-05"
     },
     {
       "id": 6,
       "title": "Test",
       "assignee": "B",
-      "level": 3
+      "level": 3,
+      "startAt": "2016-11-06",
+      "endAt": "2016-11-08"
     },
     {
       "id": 7,
