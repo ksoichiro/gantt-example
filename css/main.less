@@ -64,6 +64,10 @@
     width: 100% - @wbs-width;
     left: @wbs-width;
     overflow-x: scroll;
+    // Hide horizontal scroll bar
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .gantt {
       td {
         border-left: 1px solid #ddd;
