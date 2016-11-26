@@ -7,6 +7,24 @@
     });
   });
 
+  $(window).on('resize', () => {
+    resizeGantt();
+  });
+
+  $('.wbs-container').on('resize', () => {
+    if (0 < $('.wbs-container').width()) {
+      resizeGantt();
+    }
+  });
+
+  function resizeGantt() {
+    const wbsWidth = 400;
+    $('.wbs').width(wbsWidth);
+    $('.gantt-container').offset({left: wbsWidth});
+    console.log('.wbs-container.width: ' + $('.wbs-container').width());
+    $('.gantt-container').width($('.wbs-container').width() - wbsWidth);
+  }
+
   function render(data) {
     let $tbody = $('.wbs tbody');
     let ganttFrom = moment('2016-11-01', 'YYYY-MM-DD');
