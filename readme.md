@@ -1,4 +1,4 @@
-# Gantt chart example
+# Gantt Example
 
 ![](screenshot.png)
 
