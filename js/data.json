@@ -4,6 +4,7 @@
       "id": 1,
       "title": "Feature1",
       "level": 1,
+      "hasChild": true,
       "startAt": "2016-11-02",
       "endAt": "2016-11-08"
     },
@@ -12,6 +13,8 @@
       "title": "Sub-feature1",
       "assignee": "A",
       "level": 2,
+      "hasChild": true,
+      "parent": 1,
       "startAt": "2016-11-02",
       "endAt": "2016-11-08"
     },
@@ -20,6 +23,7 @@
       "title": "Implement Core",
       "assignee": "A",
       "level": 3,
+      "parent": 2,
       "startAt": "2016-11-02",
       "endAt": "2016-11-03"
     },
@@ -28,6 +32,7 @@
       "title": "Implement Infra",
       "assignee": "B",
       "level": 3,
+      "parent": 2,
       "startAt": "2016-11-02",
       "endAt": "2016-11-03"
     },
@@ -36,6 +41,7 @@
       "title": "Polish",
       "assignee": "A",
       "level": 3,
+      "parent": 2,
       "startAt": "2016-11-04",
       "endAt": "2016-11-05"
     },
@@ -44,47 +50,56 @@
       "title": "Test",
       "assignee": "B",
       "level": 3,
+      "parent": 2,
       "startAt": "2016-11-06",
       "endAt": "2016-11-08"
     },
     {
       "id": 7,
       "title": "Feature2",
-      "level": 1
+      "level": 1,
+      "hasChild": true
     },
     {
       "id": 8,
       "title": "Sub-feature2",
-      "level": 2
+      "level": 2,
+      "hasChild": true,
+      "parent": 7
     },
     {
       "id": 9,
       "title": "Implement",
       "assignee": "C",
-      "level": 3
+      "level": 3,
+      "parent": 8
     },
     {
       "id": 10,
       "title": "Test",
       "assignee": "E",
-      "level": 3
+      "level": 3,
+      "parent": 8
     },
     {
       "id": 11,
       "title": "Bugfix",
-      "level": 1
+      "level": 1,
+      "hasChild": true
     },
     {
       "id": 12,
       "title": "Fix",
       "assignee": "B",
-      "level": 2
+      "level": 2,
+      "parent": 11
     },
     {
       "id": 13,
       "title": "Test",
       "assignee": "D",
-      "level": 2
+      "level": 2,
+      "parent": 11
     }
   ]
 }
