@@ -1,5 +1,6 @@
 # Gantt chart example
 
+![](screenshot.png)
 
 ## Run
 
