@@ -8,10 +8,10 @@
   });
 
   function render(data) {
-    let $tbody = $('.wbs.script table.wbs tbody');
+    let $tbody = $('.wbs tbody');
     let ganttFrom = moment('2016-11-01', 'YYYY-MM-DD');
     let ganttTo = ganttFrom.clone().add(1, 'months');
-    let $ganttTable = $('.wbs.script .gantt table');
+    let $ganttTable = $('.gantt');
     let grandParentIdClasses = [];
     let lastElem = null;
     data.tasks.forEach((e) => {
@@ -29,10 +29,17 @@
       }
       let faClass = e.hasChild === true ? 'fa-minus-square-o tree' : 'fa-minus-square-o';
       let trClasses = grandParentIdClasses.concat(['open']);
+      if (e.level == 1) {
+        trClasses.push('top');
+      }
+      let startAt = e.startAt ? moment(e.startAt, 'YYYY-MM-DD').format('MM/DD') : '&#160;';
+      let endAt = e.endAt ? moment(e.endAt, 'YYYY-MM-DD').format('MM/DD') : '&#160;';
       let row = `<tr id="r-${e.id}" class="${trClasses.join(' ')}" data-id="${e.id}">`;
       row += `<td class="id">${e.id}</td>`;
       row += `<td class="l${e.level} task">`;
       row += `<i class="fa ${faClass}" data-target=".p-${e.id}" /> ${e.title}</td>`;
+      row += `<td>${startAt}</td>`;
+      row += `<td>${endAt}</td>`;
       row += `<td>&#160;</td>`;
       row += `<td>${e.assignee || ''}</td>`;
       row += `</tr>`;
@@ -94,7 +101,11 @@
 
     let $ganttTbody = $ganttTable.find('tbody');
     data.tasks.forEach(function(e) {
-      let $row = $(`<tr id="g-${e.id}" data-wbs="r-${e.id}"></tr>`);
+      let trClasses = [];
+      if (e.level == 1) {
+        trClasses.push('top');
+      }
+      let $row = $(`<tr id="g-${e.id}" class="${trClasses.join(' ')}" data-wbs="r-${e.id}"></tr>`);
       for (let i = 0; i < days; i++) {
         $row.append('<td>&#160;</td>');
       }
@@ -106,7 +117,9 @@
       if (e.startAt && e.endAt) {
         let start = moment(e.startAt).diff(ganttFrom, 'days');
         let duration = moment(e.endAt, 'YYYY-MM-DD').diff(moment(e.startAt, 'YYYY-MM-DD'), 'days') + 1;
-        $ganttTable.append(`<div class="bar" id="b-${e.id}" style="top: ${32 + dayHeight * idx}px; left: ${dayWidth * start}px; height: ${dayHeight - 1}px; width: ${dayWidth * duration}px;"></div>`);
+        const paddingTop = 2;
+        const paddingBottom = 2;
+        $ganttTable.append(`<div class="bar" id="b-${e.id}" style="top: ${32 + dayHeight * idx + paddingTop}px; left: ${dayWidth * start}px; height: ${dayHeight - 1 - paddingTop - paddingBottom}px; width: ${dayWidth * duration}px;"></div>`);
       }
     });
   }

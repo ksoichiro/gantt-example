@@ -1,3 +1,8 @@
+@wbs-width: 30%;
+@wbs-top-color: #80bfff;
+@wbs-bar-color: darken(@wbs-top-color, 20%);
+@wbs-bar-border-color: darken(@wbs-bar-color, 20%);
+
 * {
   font-family: "Meiryo";
 }
@@ -9,66 +14,73 @@
 .table>tbody>tr>td {
   font-size: 60%;
 }
-div.wbs {
+.wbs-container {
   position: relative;
-  @wbs-width: 30%;
-  &>.table.wbs {
+  &>.wbs {
     position: absolute;
     width: @wbs-width;
     overflow: scroll;
     table-layout:fixed;
     border-right: 1px solid #ccc;
+    &>thead>tr>th.id,
+    &>tbody>tr>td.id {
+      width: 30px;
+      overflow-x: hidden;
+    }
+    &>tbody>tr>td.task {
+      white-space: nowrap;
+      min-width: 80px;
+      overflow-x: hidden;
+      i.tree {
+        cursor: pointer;
+      }
+    }
+    th.start,
+    th.end,
+    th.due {
+      width: 40px;
+    }
+    td.l1 {
+      padding-left: 1em;
+    }
+    td.l2 {
+      padding-left: 2em;
+    }
+    td.l3 {
+      padding-left: 3em;
+    }
+    td.l4 {
+      padding-left: 4em;
+    }
+    tr.hidden {
+      display: none;
+    }
+    tr.top {
+      background: @wbs-top-color;
+    }
   }
-  &>div.gantt {
+  &>.gantt-container {
     position: absolute;
     width: 100% - @wbs-width;
     left: @wbs-width;
     overflow-x: scroll;
-  }
-}
-.wbs>.table {
-  &>thead>tr>th.id,
-  &>tbody>tr>td.id {
-    width: 30px;
-    overflow-x: hidden;
-  }
-  &>tbody>tr>td.task {
-    white-space: nowrap;
-    width: 80px;
-    overflow-x: hidden;
-    background: #fff;
-    i.tree {
-      cursor: pointer;
+    .gantt {
+      td {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+      }
+      .top {
+        background: @wbs-top-color;
+      }
+      .hidden {
+        display: none;
+      }
+      .bar {
+        position: absolute;
+        background: @wbs-bar-color;
+        border: 1px solid @wbs-bar-border-color;
+        border-radius: 2px;
+      }
     }
-  }
-  tr.hidden {
-    display: none;
-  }
-}
-.table>tbody>tr {
-  td.l1 {
-    padding-left: 1em;
-  }
-  td.l2 {
-    padding-left: 2em;
-  }
-  td.l3 {
-    padding-left: 3em;
-  }
-  td.l4 {
-    padding-left: 4em;
-  }
-}
-.gantt .table {
-  tr.hidden {
-    display: none;
-  }
-}
-.gantt>.bar {
-  position: absolute;
-  background: #319e3a;
-  border-radius: 4px;
-  &.hidden {
-    display: none;
   }
 }
