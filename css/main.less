@@ -59,8 +59,16 @@ div.wbs {
     padding-left: 4em;
   }
 }
+.gantt .table {
+  tr.hidden {
+    display: none;
+  }
+}
 .gantt>.bar {
   position: absolute;
   background: #319e3a;
   border-radius: 4px;
+  &.hidden {
+    display: none;
+  }
 }
