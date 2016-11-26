@@ -115,11 +115,15 @@
     let dayHeight = $ganttTable.find('tbody tr td').outerHeight();
     data.tasks.forEach(function(e, idx) {
       if (e.startAt && e.endAt) {
-        let start = moment(e.startAt).diff(ganttFrom, 'days');
-        let duration = moment(e.endAt, 'YYYY-MM-DD').diff(moment(e.startAt, 'YYYY-MM-DD'), 'days') + 1;
         const paddingTop = 2;
         const paddingBottom = 2;
-        $ganttTable.append(`<div class="bar" id="b-${e.id}" style="top: ${32 + dayHeight * idx + paddingTop}px; left: ${dayWidth * start}px; height: ${dayHeight - 1 - paddingTop - paddingBottom}px; width: ${dayWidth * duration}px;"></div>`);
+        let start = moment(e.startAt).diff(ganttFrom, 'days');
+        let duration = moment(e.endAt, 'YYYY-MM-DD').diff(moment(e.startAt, 'YYYY-MM-DD'), 'days') + 1;
+        let $row = $ganttTable.find(`tbody tr#g-${e.id}`);
+        let barTop = $row.position().top + paddingTop;
+        let barHeight = $row.outerHeight() - paddingTop - paddingBottom;
+        let barWidth = dayWidth * duration;
+        $ganttTable.append(`<div class="bar" id="b-${e.id}" style="top: ${barTop}px; left: ${dayWidth * start}px; height: ${barHeight}px; width: ${barWidth}px;"></div>`);
       }
     });
   }
