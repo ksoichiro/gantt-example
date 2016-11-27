@@ -74,6 +74,11 @@
       display: none;
     }
     .gantt {
+      // Hide horizontal scroll bar
+      th::-webkit-scrollbar,
+      td::-webkit-scrollbar {
+        display: none;
+      }
       td {
         border-left: 1px solid #ddd;
         border-right: 1px solid #ddd;
