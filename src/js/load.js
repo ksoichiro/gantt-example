@@ -3,6 +3,8 @@
   require('../../node_modules/font-awesome/css/font-awesome.css');
   require('../css/main.less');
   window.$ = window.jQuery = require('jquery');
+  require('jquery-contextmenu');
+  require('../../node_modules/jquery-contextmenu/dist/jquery.contextMenu.css');
   require('bootstrap');
   let moment = require('moment');
   $(document).ready(() => {
@@ -72,10 +74,13 @@
         $row.data('parent', '#r-' + e.parent);
       }
       $tbody.append($row);
+      let items = {};
+      items.edit = {name: 'Edit', icon: 'fa-edit', callback: (key, opt) => { alert("Foo!"); }};
+      items.delete = {name: 'Delete', icon: 'fa-trash-o', callback: (key, opt) => { alert("Bar!") }};
       if (e.hasChild === true) {
         let icon = $row.find('i.tree');
         if (icon) {
-          icon.on('click', () => {
+          let itemOpenClose = () => {
             let holder = $(icon).parents('tr');
             let $ganttTbody = $ganttTable.find('tbody');
             $tbody.find(icon.data('target')).each((idx, t) => {
@@ -108,9 +113,13 @@
             icon.toggleClass('fa-minus-square-o');
             icon.toggleClass('fa-plus-square-o');
             holder.toggleClass('open');
-          });
+          };
+          icon.on('click', itemOpenClose);
+          items.sep1 = '---------';
+          items.openClose = {name: 'Open/Close', icon: 'fa-chevron-circle-down', callback: (key, opt) => { itemOpenClose(); }};
         }
       }
+      $.contextMenu({ selector: `#r-${e.id}`, items: items });
       lastElem = e;
     });
 
