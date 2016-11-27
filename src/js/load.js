@@ -1,7 +1,13 @@
 (function() {
+  require('../../node_modules/bootstrap/dist/css/bootstrap.css');
+  require('../../node_modules/font-awesome/css/font-awesome.css');
+  require('../css/main.less');
+  window.$ = window.jQuery = require('jquery');
+  require('bootstrap');
+  let moment = require('moment');
   $(document).ready(() => {
     $.ajax({
-      url: '/js/data.json'
+      url: '/data.json'
     }).done((data) => {
       render(data);
     });
