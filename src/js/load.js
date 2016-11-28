@@ -75,7 +75,9 @@
       }
       $tbody.append($row);
       let items = {};
-      items.edit = {name: 'Edit', icon: 'fa-edit', callback: (key, opt) => { alert("Foo!"); }};
+      items.edit = {name: 'Edit', icon: 'fa-edit', callback: (key, opt) => {
+        $('#task-editor').modal({});
+      }};
       items.delete = {name: 'Delete', icon: 'fa-trash-o', callback: (key, opt) => { alert("Bar!") }};
       if (e.hasChild === true) {
         let icon = $row.find('i.tree');
