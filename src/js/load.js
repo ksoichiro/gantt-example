@@ -122,6 +122,9 @@
         }
       }
       $.contextMenu({ selector: `#r-${e.id}`, items: items });
+      $(`#r-${e.id}`).on('dblclick', () => {
+        $('#task-editor').modal({});
+      });
       lastElem = e;
     });
 
